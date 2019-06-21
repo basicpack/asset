@@ -15,17 +15,22 @@ function asset($urls){
         if(file_exists($filename)){
             $md5=md5_file($filename);
             $url=$url."?$md5";
+            printAsset($url,$ext);
         }elseif(file_exists($filename2)){
             $md5=md5_file($filename2);
             $url=$url."?$md5";
+            printAsset($url,$ext);
         }
-        $url=$_ENV['SITE_URL'];
-        if($ext=='css'){
-            print '<link rel="stylesheet" href="'.$url.'" />';
-        }
-        if($ext=='js'){
-            print '<script src="'.$url.'"></script>';
-        }
-        print PHP_EOL;
     }
 }
+
+function printAsset($url,$ext){
+    $url=$_ENV['SITE_URL'].$url;
+    if($ext=='css'){
+        print '<link rel="stylesheet" href="'.$url.'" />';
+    }
+    if($ext=='js'){
+        print '<script src="'.$url.'"></script>';
+    }
+}
+
