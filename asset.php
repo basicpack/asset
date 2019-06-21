@@ -8,7 +8,7 @@ function asset($urls){
         $urls=$arr;
     }
     foreach ($urls as $url) {
-        $filename=ROOT.'public'.$url;
+        $filename=ROOT.'public/'.$url;
         $filename2=ROOT.$url;
         $path_parts = pathinfo($url);
         $ext=$path_parts['extension'];
