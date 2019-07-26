@@ -25,7 +25,7 @@ function asset($urls){
 }
 
 function printAsset($url,$ext){
-    $url=$_ENV['SITE_URL'].$url;
+    $url=$_SERVER["REQUEST_SCHEME"].'://'.$_ENV['SITE_DOMAIN'].$url;
     if($ext=='css'){
         print '<link rel="stylesheet" href="'.$url.'" />';
     }
